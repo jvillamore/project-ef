@@ -7,3 +7,7 @@ dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 8.0.8
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.8
 # Conexión con Postgresql 
 dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --version 8.0.4
+
+# Para las migraciones.
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.8

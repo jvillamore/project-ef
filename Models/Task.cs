@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace project_ef.Models;
 
-[Table("Task")]
+// [Table("Task")]
 public class Task
 {
     [Key]
@@ -12,8 +12,8 @@ public class Task
     [ForeignKey("CategoryId")]
     public Guid CategoryId { get; set; }
 
-    [Required]
-    [MaxLength(255)]
+    // [Required]
+    // [MaxLength(255)]
     public required string Titulo { get; set; }
 
     public required string Description { get; set; }
@@ -24,7 +24,7 @@ public class Task
 
     public virtual Category Category { get; set; }
 
-    [NotMapped]
+    // [NotMapped]
     public string Resume { get; set; }
 }
 
