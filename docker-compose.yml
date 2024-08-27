@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  sqlserver:
+    container_name: db-sqlserver-ef
+    image: mcr.microsoft.com/mssql/server # Reemplaza con la versión deseada
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "#123@MyDockerStongStyle!"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - /home/jvillafuerte/Documents/Docker/sqlserver-ef/sqlserver_data:/var/opt/data
+
+    restart: always
+
+volumes:
+  sqlserver_data:
