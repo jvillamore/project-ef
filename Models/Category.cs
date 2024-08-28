@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace project_ef.Models;
 
@@ -20,5 +21,6 @@ public class Category
 
     public DateTime UpdateAt { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Task> Tasks { get; set; }
 }
