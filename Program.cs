@@ -31,4 +31,30 @@ app.MapPost("/api/tareas", async ([FromServices] TareasContext dbContext, [FromB
     return Results.Ok();
 });
 
+app.MapPut("/api/tareas/{id}", async ([FromServices] TareasContext dbContext, [FromBody] project_ef.Models.Task task, [FromRoute] Guid id) =>
+{
+    var vTask = dbContext.Tasks.Find(id);
+    if (vTask is not null)
+    {
+        vTask.CategoryId = task.CategoryId;
+        vTask.UpdateAt = DateTime.UtcNow;
+        vTask.Titulo = task.Titulo;
+        vTask.Description = task.Description;
+        vTask.PrioridadTarea = task.PrioridadTarea;
+    }
+    await dbContext.SaveChangesAsync();
+    return Results.Ok();
+});
+
+app.MapDelete("/api/tareas/{id}", async ([FromServices] TareasContext dbContext, [FromRoute] Guid id) =>
+{
+    var vTask = dbContext.Tasks.Find(id);
+    if (vTask is not null)
+    {
+        dbContext.Tasks.Remove(vTask);
+        await dbContext.SaveChangesAsync();
+    }
+    return Results.Ok();
+});
+
 app.Run();
