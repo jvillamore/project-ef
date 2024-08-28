@@ -22,6 +22,8 @@ public class Task
 
     public DateTime CreationAt { get; set; }
 
+    public DateTime UpdateAt { get; set; }
+
     public virtual Category Category { get; set; }
 
     // [NotMapped]

@@ -16,5 +16,9 @@ public class Category
     // [MaxLength(255)]
     public string Description { get; set; }
 
+    public DateTime CreationAt { get; set; }
+
+    public DateTime UpdateAt { get; set; }
+
     public virtual ICollection<Task> Tasks { get; set; }
 }
